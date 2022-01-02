@@ -1,10 +1,9 @@
-import { store } from 'quasar/wrappers'
-import { InjectionKey } from 'vue'
-import {
-  createStore,
-  Store as VuexStore,
-  useStore as vuexUseStore,
-} from 'vuex'
+import {store} from 'quasar/wrappers'
+import {InjectionKey} from 'vue'
+import {createStore, Store as VuexStore, useStore as vuexUseStore,} from 'vuex'
+import SocketConfigModule from './SocketConfig';
+import ChatServerModule from 'src/store/ChatServer';
+import AppConfigModule from 'src/store/AppConfig';
 
 // import example from './module-example'
 // import { ExampleStateInterface } from './module-example/state';
@@ -22,7 +21,9 @@ export interface StateInterface {
   // Define your own store structure, using submodules if needed
   // example: ExampleStateInterface;
   // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
-  example: unknown
+  SocketConfigModule: any;
+  ChatServerModule: any;
+  AppConfigModule: any;
 }
 
 // provide typings for `this.$store`
@@ -36,17 +37,17 @@ declare module '@vue/runtime-core' {
 export const storeKey: InjectionKey<VuexStore<StateInterface>> = Symbol('vuex-key')
 
 export default store(function (/* { ssrContext } */) {
-  const Store = createStore<StateInterface>({
+  return createStore<StateInterface>({
     modules: {
-      // example
+      ChatServerModule: ChatServerModule,
+      AppConfigModule: AppConfigModule,
+      SocketConfigModule: SocketConfigModule,
     },
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only
     strict: !!process.env.DEBUGGING
-  })
-
-  return Store;
+  });
 })
 
 export function useStore() {

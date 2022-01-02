@@ -3,7 +3,7 @@
 An MVP chat app built in Golang && VueJs
 
 
-Status: inProgress
+__Status__: inProgress
 
 ## License information
 ![WTFPL](license.png)
