@@ -1,4 +1,4 @@
-# GO Project Seed
+# BBChat::server::Golang
 
 This is a boilerplate template for new GO projects. 
 **If you want to add or improve this boilerplate, create a PR**
@@ -13,8 +13,3 @@ Much more information (and more standard folders) can be found here: [golang-sta
 * `scripts` - Scripts to perform various build, install, analysis, etc operations. These scripts keep the root level Makefile small and simple.
 
 
-## License information
-![WTFPL](../license.png)
-
-This projects uses the [WTFPL license](http://www.wtfpl.net/)
-(Do **W**hat **T**he **F**uck You Want To **P**ublic **L**icense)
